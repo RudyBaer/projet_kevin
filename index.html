@@ -4,7 +4,8 @@
 </head>
 <body ng-app="app"  ng-controller="main">
   <h1>{{kevin}} a fait une mauvaise blague</h1>
-  <input type="text" ng-model="kevin"/>
+  <label>La blague</label><input type="text" ng-model="joke"/>
+  <button  ng-click="addJoke(joke)">Ajouter la mauvaise blague</button>
   <script src="bower_components/angular/angular.min.js"></script>
   <script src="index.js"></script>
 </body>
