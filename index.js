@@ -4,8 +4,13 @@ app.controller("main", function ($scope)
   {
     $scope.kevin="Kevin";
 
+    $scope.jokes=[];
+
     $scope.addJoke=function(joke) {
-      console.log(joke);
+      var j={};
+      j.txt=joke;
+      j.date=new Date();
+      $scope.jokes.push(j);
       $scope.joke="";
     }
   });
