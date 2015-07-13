@@ -17,4 +17,18 @@ app.controller("main", function ($scope)
       $scope.jokes.push(j);
       $scope.joke="";
     }
+
+
   });
+
+
+  app.controller("jokeController", function ($scope)
+    {
+      $scope.addFavorite=function(joke) {
+        joke.favorite=true;
+      }
+
+      $scope.removeFavorite=function(joke) {
+        joke.favorite=false;
+      }
+    });
