@@ -6,6 +6,10 @@ app.controller("main", function ($scope)
 
     $scope.jokes=[];
 
+    $scope.jokefilter={}
+
+    $scope.jokefilter.txt="";
+
     $scope.addJoke=function(joke) {
       var j={};
       j.txt=joke;
