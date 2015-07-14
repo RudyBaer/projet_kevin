@@ -9,6 +9,8 @@ app.controller("main",['$scope','$http', function ($scope,$http)
     $scope.predicate='';
     $scope.reverse=false;
 
+    $scope.gens = ['kevin', 'youen', 'jonathan', 'rudy', 'aurélien'];
+
     $http.get('api/joke')
         .success(function(data) {
             $scope.jokes=data;
@@ -29,6 +31,20 @@ app.controller("main",['$scope','$http', function ($scope,$http)
             .success(function(data) {
                 $scope.jokes.push(j);
                 $scope.joke="";
+            }).
+            error(function(data, status, headers, config) {
+                console.log(data);
+            });
+    }
+
+    $scope.addComment=function(joke,comment) {
+        if (joke.comments==undefined) {
+            joke.comments=[];
+        }
+        comment.date= new Date();
+        joke.comments.push(comment);
+        $http.put('api/joke',joke)
+            .success(function(data) {
             }).
             error(function(data, status, headers, config) {
                 console.log(data);
