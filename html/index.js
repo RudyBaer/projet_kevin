@@ -1,10 +1,18 @@
 var app=angular.module("app", []);
 
-app.controller("main", function ($scope)
+app.controller("main",['$scope','$http', function ($scope,$http)
   {
     $scope.kevin="Kevin";
 
     $scope.jokes=[];
+
+    $http.get('api/joke')
+        .success(function(data) {
+          $scope.jokes=data;
+        }).
+        error(function(data, status, headers, config) {
+          console.log(data);
+        });
 
     $scope.jokefilter={}
 
@@ -14,12 +22,18 @@ app.controller("main", function ($scope)
       var j={};
       j.txt=joke;
       j.date=new Date();
-      $scope.jokes.push(j);
-      $scope.joke="";
+      $http.post('api/joke',j)
+          .success(function(data) {
+            $scope.jokes.push(j);
+            $scope.joke="";
+          }).
+          error(function(data, status, headers, config) {
+            console.log(data);
+          });
     }
 
 
-  });
+  }]);
 
 
   app.controller("jokeController", function ($scope)
