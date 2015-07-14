@@ -1,11 +1,13 @@
 var express = require('express');
+var bodyParser     =        require("body-parser");
 var app = express();
-
 
 var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/projetk');
 
+app.use(bodyParser.json()); // support json encoded bodies
+app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use(function(req,res,next){
     req.db = db;
@@ -24,12 +26,10 @@ app.get('/api/joke',function(req, res){
 app.post('/api/joke',function(req, res){
     var db = req.db;
 
-    // Get our form values. These rely on the "name" attributes
-    var userName = req.body.username;
-    var userEmail = req.body.useremail;
-
     // Set our collection
     var collection = db.get('jokes');
+
+    console.log(req.body);
 
     // Submit to the DB
     collection.insert(req.body, function (err, doc) {
