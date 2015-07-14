@@ -1,0 +1,11 @@
+{
+    "name": "projet_kevin",
+    "description": "projet kevin",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "4.x",
+        "mongodb": "~2.0",
+        "monk":"~1.0"
+    }
+}
