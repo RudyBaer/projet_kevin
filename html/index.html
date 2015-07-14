@@ -10,10 +10,11 @@
     <div ng-controller="notificationController">
       <div class="alert alert-info" role="alert" ng-if="notification !=undefined && notification !=''">{{ notification }}</div>
     </div>
-    <form>
+    <form name="formadd">
       <div class="form-group">
-        <label>La blague</label><textarea cols="100" rows="3"  type="text" ng-model="joke" class="form-control"></textarea>
-        <button class="btn btn-success" ng-click="addJoke(joke)">Ajouter</button>
+        <label>La blague</label><textarea name="txt" cols="100" rows="3"  type="text" ng-model="joke" class="form-control" required></textarea>
+        <span ng-show="formadd.txt.$invalid" class="help-block">Il faut écrire la blague</span>
+        <button class="btn btn-success" ng-click="addJoke(joke)" ng-disabled="formadd.$invalid">Ajouter</button>
       </div>
     </form>
     <h2>Historique des mauvaises blagues</h2>
@@ -30,11 +31,11 @@
       <hr/>
       <h3>{{ joke.comments.length || 0 }} commentaires</h3>
       <div>
-        <form>
+        <form novalidate>
           <div class="form-group">
             <select ng-options="value for value in gens" ng-model="comment.name"/>
             <textarea cols="80" rows="2"  type="text" ng-model="comment.txt" class="form-control"></textarea>
-            <button class="btn btn-success" ng-click="addComment(joke,comment)">Ajouter</button>
+            <button class="btn btn-success" ng-click="addComment(joke,comment)" ng-disabled="validate(comment)">Ajouter</button>
           </div>
         </form>
       </div>
