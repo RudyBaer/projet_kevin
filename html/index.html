@@ -22,8 +22,9 @@
     <button class="btn btn-link" ng-click="order('score')">Ordonner par score</button>
     <button class="btn btn-link" ng-click="order('date')">Ordonner par date</button>
     <p>{{(jokes | filter:jokefilter).length }} blagues</p>
-    <div ng-repeat="joke in jokes | filter:jokefilter | orderBy : predicate : reverse" ng-controller="jokeController">
-      <p><strong>{{joke.date | date : short }}</strong> {{joke.txt}}</p>
+    <div ng-repeat="joke in jokes | filter : jokefilter | orderBy : predicate : reverse" ng-controller="jokeController">
+      <p><strong>{{joke.date | date : short }}</strong> {{ joke.score| score }}</p>
+      <p> {{joke.txt}}</p>
       <span ng-if="joke.score != undefined && joke.score >0">+ {{joke.score}}</span>
       <button class="btn glyphicon glyphicon-thumbs-up" ng-click="plusOne(joke)"></button>
       <button class="btn glyphicon glyphicon-star" ng-if="joke.favorite==true" ng-click="removeFavorite(joke)"></button>

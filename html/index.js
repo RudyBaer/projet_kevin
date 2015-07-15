@@ -9,6 +9,10 @@ app.controller("main",['$scope','$http', function ($scope,$http)
     $scope.predicate='';
     $scope.reverse=false;
 
+    $scope.jokefilter={};
+
+    $scope.jokefilter.txt="";
+
     $scope.gens = ['kevin', 'youen', 'jonathan', 'rudy', 'aurélien'];
 
     $http.get('api/joke')
@@ -19,9 +23,7 @@ app.controller("main",['$scope','$http', function ($scope,$http)
             console.log(data);
         });
 
-    $scope.jokefilter={};
 
-    $scope.jokefilter.txt="";
 
     $scope.addJoke=function(joke) {
         var j={};
@@ -121,3 +123,19 @@ app.controller("notificationController",['$scope','$rootScope', function ($scope
     });
 
 }]);
+
+
+app.filter('score', function () {
+
+    var STARS = {
+        1: '\u2605',
+        2: '\u2605\u2605',
+        3: '\u2605\u2605\u2605',
+        4: '\u2605\u2605\u2605\u2605',
+        5: '\u2605\u2605\u2605\u2605\u2605'
+    };
+
+    return function(startCount) {
+        return STARS[startCount];
+    };
+});
