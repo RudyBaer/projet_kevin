@@ -5,6 +5,8 @@ app.controller("main", function ($scope) {
 
         $scope.jokes = [];
 
+        $scope.jokefilter = "";
+
         $scope.addJoke = function (joke) {
             console.log(joke);
             $scope.joke = "";

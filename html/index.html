@@ -21,8 +21,11 @@
         </div>
     </form>
     <h2>Historique des mauvaises blagues</h2>
+    <input type="text" ng-model="jokefilter">
 
-    <div ng-repeat="joke in jokes">
+    <p>{{(jokes | filter:jokefilter).length }} blagues</p>
+
+    <div ng-repeat="joke in jokes | filter:jokefilter">
         <p><strong>{{joke.date | date : short}}</strong> {{joke.txt}}</p>
     </div>
 </div>
