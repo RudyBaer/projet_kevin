@@ -5,7 +5,7 @@ app.controller("main", ['$scope', '$http', function ($scope, $http) {
 
         $scope.jokes = [];
 
-        $http.get('locahost:3000/api/joke')
+        $http.get('api/joke')
             .success(function (data) {
                 $scope.jokes = data;
             }).
@@ -22,7 +22,7 @@ app.controller("main", ['$scope', '$http', function ($scope, $http) {
             var j = {};
             j.txt = joke;
             j.date = new Date();
-            $http.post('locahost:3000/api/joke', j)
+            $http.post('api/joke', j)
                 .success(function (data) {
                     $scope.jokes.push(j);
                     $scope.joke = "";
