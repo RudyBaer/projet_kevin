@@ -54,6 +54,14 @@ app.controller("main", ['$scope', '$http', function ($scope, $http) {
             $scope.predicate = order;
             $scope.reverse = !$scope.reverse;
         }
+
+        $scope.validate = function (comment) {
+            if (comment != undefined && comment.txt != undefined && comment.txt != "" && comment.name != undefined && comment.name != "") {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }]
 );
 
