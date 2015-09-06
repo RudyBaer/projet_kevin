@@ -18,3 +18,13 @@ app.controller("main", function ($scope) {
         }
     }
 );
+
+app.controller("jokeController", function ($scope) {
+    $scope.addFavorite = function (joke) {
+        joke.favorite = true;
+    }
+
+    $scope.removeFavorite = function (joke) {
+        joke.favorite = false;
+    }
+});
