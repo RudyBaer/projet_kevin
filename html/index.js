@@ -4,6 +4,8 @@ app.controller("main", ['$scope', '$http', function ($scope, $http) {
         $scope.name = "Kevin";
 
         $scope.jokes = [];
+        $scope.predicate = '';
+        $scope.reverse = false;
 
         $http.get('api/joke')
             .success(function (data) {
@@ -30,6 +32,11 @@ app.controller("main", ['$scope', '$http', function ($scope, $http) {
                 error(function (data, status, headers, config) {
                     console.log(data);
                 });
+        }
+
+        $scope.order = function (order) {
+            $scope.predicate = order;
+            $scope.reverse = !$scope.reverse;
         }
     }]
 );
