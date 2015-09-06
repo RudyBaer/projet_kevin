@@ -14,11 +14,17 @@
 
     <form>
         <div class="form-group">
-            <label>La blague</label><textarea cols="100" rows="3" type="text" ng-model="joke" class="form-control"></textarea>
+            <label>La blague</label><textarea cols="100" rows="3" type="text" ng-model="joke"
+                                              class="form-control"></textarea>
             <button class="btn btn-success" ng-click="addJoke(joke)">Ajouter la mauvaise blague</button>
 
         </div>
     </form>
+    <h2>Historique des mauvaises blagues</h2>
+
+    <div ng-repeat="joke in jokes">
+        <p><strong>{{joke.date | date : short}}</strong> {{joke.txt}}</p>
+    </div>
 </div>
 </body>
 </html>
