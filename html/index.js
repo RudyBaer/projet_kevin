@@ -41,15 +41,17 @@ app.controller("main", ['$scope', '$http', function ($scope, $http) {
     }]
 );
 
-app.controller("jokeController", function ($scope, $http) {
+app.controller("jokeController", function ($scope, $http, $rootScope) {
     $scope.addFavorite = function (joke) {
         joke.favorite = true;
         updateJoke(joke);
+        $rootScope.$broadcast('favorite', joke);
     }
 
     $scope.removeFavorite = function (joke) {
         joke.favorite = false;
         updateJoke(joke);
+        $rootScope.$broadcast('unfavorite', joke);
     }
     $scope.plusOne = function (joke) {
 
@@ -59,6 +61,7 @@ app.controller("jokeController", function ($scope, $http) {
         }
         joke.score += 1;
         updateJoke(joke);
+        $rootScope.$broadcast('plusOne', joke);
     }
 
 
@@ -73,3 +76,24 @@ app.controller("jokeController", function ($scope, $http) {
     }
 
 });
+
+
+app.controller("notificationController", ['$scope', '$rootScope', function ($scope, $rootScope) {
+
+    $scope.$on('plusOne', function (event, joke) {
+        if (joke != undefined) {
+            $scope.notification = "+1 sur blague \"" + joke.txt + "\"";
+        }
+    });
+    $scope.$on('favorite', function (event, joke) {
+        if (joke != undefined) {
+            $scope.notification = "\"" + joke.txt + "\" ajouté aux favoris.";
+        }
+    });
+    $scope.$on('unfavorite', function (event, joke) {
+        if (joke != undefined) {
+            $scope.notification = "\"" + joke.txt + "\" retiré des favoris.";
+        }
+    });
+
+}]);

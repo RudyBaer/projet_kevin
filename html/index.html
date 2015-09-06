@@ -12,6 +12,11 @@
 <div class="container">
     <h1>{{name}} a fait une mauvaise blague</h1>
 
+    <div ng-controller="notificationController">
+        <div class="alert alert-info" role="alert" ng-if="notification !=undefined && notification !=''">
+            {{notification}}
+        </div>
+    </div>
     <form>
         <div class="form-group">
             <label>La blague</label><textarea cols="100" rows="3" type="text" ng-model="joke"
