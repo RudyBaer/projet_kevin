@@ -1,6 +1,6 @@
 var app = angular.module("app", []);
 
-app.controller("main", ['$scope', '$http', function ($scope, $http) {
+app.controller("mainCtrl", ['$scope', '$http', function ($scope, $http) {
         $scope.name = "Kevin";
 
         $scope.jokes = [];
@@ -9,7 +9,7 @@ app.controller("main", ['$scope', '$http', function ($scope, $http) {
 
         $scope.people = ['kevin', 'youen', 'jonathan', 'rudy', 'aurélien'];
 
-        $http.get('api/joke')
+            $http.get('api/joke')
             .success(function (data) {
                 $scope.jokes = data;
             }).

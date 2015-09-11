@@ -1,0 +1,73 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/node',
+1 verbose cli   '/usr/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   'karma-phantomjs',
+1 verbose cli   '--save-dev' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.40
+4 verbose node symlink /usr/bin/node
+5 verbose readDependencies using package.json deps
+6 verbose cache add [ 'karma-phantomjs', null ]
+7 verbose cache add name=undefined spec="karma-phantomjs" args=["karma-phantomjs",null]
+8 verbose parsed url { protocol: null,
+8 verbose parsed url   slashes: null,
+8 verbose parsed url   auth: null,
+8 verbose parsed url   host: null,
+8 verbose parsed url   port: null,
+8 verbose parsed url   hostname: null,
+8 verbose parsed url   hash: null,
+8 verbose parsed url   search: null,
+8 verbose parsed url   query: null,
+8 verbose parsed url   pathname: 'karma-phantomjs',
+8 verbose parsed url   path: 'karma-phantomjs',
+8 verbose parsed url   href: 'karma-phantomjs' }
+9 silly lockFile bfdc01e5-karma-phantomjs karma-phantomjs
+10 verbose lock karma-phantomjs /home/rudy/.npm/bfdc01e5-karma-phantomjs.lock
+11 silly lockFile bfdc01e5-karma-phantomjs karma-phantomjs
+12 silly lockFile bfdc01e5-karma-phantomjs karma-phantomjs
+13 verbose addNamed [ 'karma-phantomjs', '' ]
+14 verbose addNamed [ null, '*' ]
+15 silly lockFile 8dd17393-karma-phantomjs karma-phantomjs@
+16 verbose lock karma-phantomjs@ /home/rudy/.npm/8dd17393-karma-phantomjs.lock
+17 silly addNameRange { name: 'karma-phantomjs', range: '*', hasData: false }
+18 verbose request where is /karma-phantomjs
+19 verbose request registry https://registry.npmjs.org/
+20 verbose request id 090b29cb78bd1907
+21 verbose url raw /karma-phantomjs
+22 verbose url resolving [ 'https://registry.npmjs.org/', './karma-phantomjs' ]
+23 verbose url resolved https://registry.npmjs.org/karma-phantomjs
+24 verbose request where is https://registry.npmjs.org/karma-phantomjs
+25 info trying registry request attempt 1 at 16:38:21
+26 http GET https://registry.npmjs.org/karma-phantomjs
+27 http 404 https://registry.npmjs.org/karma-phantomjs
+28 silly registry.get cb [ 404,
+28 silly registry.get   { 'content-type': 'application/json',
+28 silly registry.get     'cache-control': 'max-age=0',
+28 silly registry.get     'content-length': '2',
+28 silly registry.get     'accept-ranges': 'bytes',
+28 silly registry.get     date: 'Fri, 11 Sep 2015 14:38:22 GMT',
+28 silly registry.get     via: '1.1 varnish',
+28 silly registry.get     age: '0',
+28 silly registry.get     connection: 'keep-alive',
+28 silly registry.get     'x-served-by': 'cache-lhr6327-LHR',
+28 silly registry.get     'x-cache': 'MISS',
+28 silly registry.get     'x-cache-hits': '0',
+28 silly registry.get     'x-timer': 'S1441982301.937410,VS0,VE96' } ]
+29 silly lockFile 8dd17393-karma-phantomjs karma-phantomjs@
+30 silly lockFile 8dd17393-karma-phantomjs karma-phantomjs@
+31 error 404 Not Found
+31 error 404
+31 error 404 'karma-phantomjs' is not in the npm registry.
+31 error 404 You should bug the author to publish it
+31 error 404 It was specified as a dependency of 'projet_kevin'
+31 error 404
+31 error 404 Note that you can also install from a
+31 error 404 tarball, folder, or http url, or git url.
+32 error System Linux 3.13.0-53-generic
+33 error command "/usr/bin/node" "/usr/bin/npm" "install" "karma-phantomjs" "--save-dev"
+34 error cwd /home/rudy/Documents/workspace/formation/projet_kevin
+35 error node -v v0.10.40
+36 error npm -v 1.4.28
+37 error code E404
+38 verbose exit [ 1, true ]
