@@ -20,9 +20,7 @@
 <p>{{(jokes | filter:jokefilter).length }} blagues</p>
 
 <div ng-repeat="joke in jokes | filter:jokefilter | orderBy : predicate : reverse" ng-controller="jokeController">
-    <p><strong>{{joke.date | date : 'short'}}</strong> {{ joke.score| score }}</p>
-
-    <p>{{joke.txt}}</p>
+    <joke joke="joke"></joke>
 
 
     <span ng-if="joke.score != undefined && joke.score >0">+ {{joke.score}}</span>
