@@ -1,4 +1,4 @@
-app.controller("mainCtrl", ['$scope', '$http', function ($scope, $http) {
+app.controller("mainCtrl", ['$scope', '$http', 'jokeService', function ($scope, $http, jokeService) {
         $scope.name = "Kevin";
 
         $scope.jokes = [];
@@ -7,45 +7,24 @@ app.controller("mainCtrl", ['$scope', '$http', function ($scope, $http) {
 
         $scope.people = ['kevin', 'youen', 'jonathan', 'rudy', 'aurélien'];
 
-        $http.get('api/joke')
-            .success(function (data) {
-                $scope.jokes = data;
-            }).
-            error(function (data, status, headers, config) {
-                console.log(data);
-            });
+        jokeService.getJokes().then(function (data) {
+            $scope.jokes = data;
+        });
 
-        $scope.addComment = function (joke, comment) {
-            if (joke.comments == undefined) {
-                joke.comments = [];
-            }
-            comment.date = new Date();
-            joke.comments.push(comment);
-            $http.put('api/joke', joke)
-                .success(function (data) {
-                }).
-                error(function (data, status, headers, config) {
-                    console.log(data);
-                });
-        }
+        $scope.addComment = jokeService.addComment;
 
 
         $scope.jokefilter = "";
 
         $scope.addJoke = function (joke) {
-            console.log(joke);
-            $scope.joke = "";
-            var j = {};
-            j.txt = joke;
-            j.date = new Date();
-            $http.post('api/joke', j)
-                .success(function (data) {
+            jokeService.addJoke(joke).then(function () {
+                    var j = {};
+                    j.txt = joke;
+                    j.date = new Date();
                     $scope.jokes.push(j);
                     $scope.joke = "";
-                }).
-                error(function (data, status, headers, config) {
-                    console.log(data);
-                });
+                }
+            );
         }
 
         $scope.order = function (order) {

@@ -1,8 +1,6 @@
 var app = angular.module("app", []);
 
 
-
-
 app.filter('score', function () {
 
     var STARS = {
