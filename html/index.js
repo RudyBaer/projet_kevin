@@ -1,5 +1,17 @@
-var app = angular.module("app", []);
+var app = angular.module("app", ['ngRoute']);
 
+app.config(function ($routeProvider) {
+
+    $routeProvider
+        .when('/', {
+            templateUrl: 'partial/main.html',
+            controller: 'mainCtrl'
+        })
+        .otherwise({
+            template: '<div>Page 404</div>'
+        });
+
+});
 
 app.filter('score', function () {
 
